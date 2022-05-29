@@ -1,0 +1,112 @@
+<!--
+====================================================
+Title: Index for WEB 330
+Authors: Amanda Groves and Professor Krasso
+Date: 29 May 2022
+Modified By: Amanda Groves
+Description: index page for Enterprise JavaScript II
+=====================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Title for class's index page-->
+        <title>WEB 330 - Enterprise JavaScript II</title>
+
+        <!--style sheets, fonts, and css links-->
+        <link href="site.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="theme.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!--js file-->
+        <script src="theme.js"></script>
+    </head>
+
+    <body class="light-theme">
+
+        <!--Adding Toggle function-->
+        <i onclick="toggleMode(this)" id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size: 28px;">
+            <span id="icon-text"></span></i>
+
+        <div id="container">
+            <!--Headers-->
+            <h1>Amanda Groves' Landing Page</h1>
+            <h2>WEB 330 Enterprise JavaScript II</h2>
+
+            <hr />
+
+            <!--List for Weekly Assignment Links-->
+            <h3>Weekly Assignments</h3>
+                <ul>
+                    <li>Assignment 2.2</li>
+                    <li>Assignment 3.2</li>
+                    <li>Assignment 4.2</li>
+                    <li>Assignment 5.2</li>
+                    <li>Assignment 6.2</li>
+                    <li>Assignment 7.2</li>
+                    <li>Assignment 8.2</li>
+                </ul>
+            
+            <!--List for Projects-->
+            <h3>Projects</h3>
+                <ul>
+                    <li>Personal Portfolio</li>
+                    <li><a href="../web-231/index.html">WEB 231's Landing Page</a></li>
+                </ul>
+
+            <!--List of Important Links-->
+            <h4>Important Links</h4>
+                <ul>
+                    <li><a href="https://github.com/buwebdev/web-330">WEB 330's GitHub Repository</a></li>
+                    <li><a href="https://bruinconnect.bellevue.edu/">BRUIN Connect</a></li>
+                    <li><a href="https://validator.w3.org/"> W3C HTML Validator</a></li>
+                    <li><a href="http://jigsaw.w3.org/css-validator/">W3C CSS Validator</a></li>
+                    <li><a href="https://www.w3schools.com/html/">HTML Tutorial</a></li>
+                    <li><a href="https://w3schools.com/js/js_best_practices.asp">JavaScript Best Practices</a></li>
+                </ul>
+        </div>
+
+        <script>
+            /*Sets the Default Theme*/
+            setDefaultTheme();
+    
+            /*Switches between Light and Dark*/
+            function toggleMode(x)
+            {
+                let colorTheme = document.body.classList; // get the body's CSS class
+                let iconMode = x.classList; // get the current classes assigned to the triggered button
+    
+                /*Use if-else-if to switch the themes*/
+                if (colorTheme.value === "light-theme")
+                {
+                    localStorage.clear();
+                    localStorage.setItem("mode", "dark-theme");
+                    localStorage.setItem("iconMode", "fa-toggle-on");
+                    localStorage.setItem("iconText", "Dark Mode");
+                }
+              
+                else
+                {
+                    localStorage.clear();
+                    localStorage.setItem("mode", "light-theme");
+                    localStorage.setItem("iconMode", "fa-toggle-off");
+                    localStorage.setItem("iconText", "Light Mode");
+                }
+    
+                colorTheme.value = localStorage.getItem("mode");
+                iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
+                document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
+            }
+    
+            /*Clears selection and defaults to light*/
+            function clearLocalStorage() {
+                localStorage.clear();
+                document.body.classList.value = "light-theme";
+                document.getElementById("icon-text").innerHTML = "Light Mode";
+                document.getElementById("icon-mode").classList.value = "fa fa-toggle-off pull-right";
+            }
+        </script>
+    </body>
+</html>

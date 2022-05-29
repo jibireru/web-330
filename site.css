@@ -1,0 +1,70 @@
+/*
+Title: Site CSS for JS II
+Author: Amanda Groves
+Date: 29 May 2022
+Modified By: Amanda Groves
+Description: Global Site CSS for projects and assignments in EnterPrise JavaScript II
+*/
+
+/*New styling for 330*/
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 10px;
+
+}
+#icon-mode:hover {
+    cursor: pointer;
+}
+#icon-text {
+    padding-left: 10px;
+}
+.pull-right {
+    float: right;
+}
+
+/*classes added from 231*/
+.assign-container {
+    padding: 10px;
+}
+.assign-content {
+    width: 600px;
+    margin: 3% auto 0;
+}
+.assign-results-text {
+    text-align: center;
+    font-size: 28px;
+}
+
+/*return home styling*/
+.return-home {
+    color: #4f3674;
+    text-decoration: none;
+}
+.return-home:hover {
+    background-color: #d6a800;
+    color: #4f3674
+}
+.return-home:visited {
+    color: #3c275A
+}
+
+/*other styling added from 231*/
+.app-header {
+    text-align: center;
+    font-weight: 400;
+    border: none;
+    color: inherit;
+    background-color: inherit;
+}
+.form {
+    display: inline-grid;
+    grid-template-columns: auto;
+}
+.form-field {
+    padding: 20px;
+}
+.full-width {
+    width: 100%;
+}
