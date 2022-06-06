@@ -68,3 +68,26 @@ Description: Global Site CSS for projects and assignments in EnterPrise JavaScri
 .full-width {
     width: 100%;
 }
+
+.card-container {
+  background-color: var(--card-background-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 600px;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-container {
+    text-align: center;
+}
+
+.return-home {
+    margin-left: 460px;
+}
+
+.card-title {
+    font-size: 28px;
+}
