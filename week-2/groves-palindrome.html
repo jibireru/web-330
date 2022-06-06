@@ -1,0 +1,110 @@
+<!--
+====================================================
+Title: Index for WEB 330
+Authors: Amanda Groves
+Date: 05 June 2022
+Modified By: Amanda Groves
+Description: Palindrone App
+=====================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Title for class's index page-->
+        <title>WEB 330 - Enterprise JavaScript II</title>
+
+        <!--style sheets, fonts, and css links-->
+        <link href="../site.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="../theme.css" type="text/css" rel="stylesheet">
+    </head>
+
+    <body class="light-theme">
+        <div class="assign-container">
+            <h1 class="app-header">Welcome to the Palindrome App!</h1>
+            <!--First Card for Palindrome input-->
+                <div class="assign-content">
+                    <div class="card-container">
+                        <div class="card-title">Palindrome Checker</div>
+                        <div class="card-content">
+                        <div class="form">
+                            <div class="form-field">
+                                <label for="txtPhrase">Phrase Value:</label>
+                                <input id="txtPhrase" type="text" class="input">
+                            </div>
+                            <div class="form-field">
+                                <!--button for onclick function for results-->
+                                <button id="btnCheckPhrase" onclick="checkPhrase()" class="btn btn-primary full-width">Check Phrase</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+        <br />
+        <!--return home to main page-->
+        <a class="return-home" href="../index.html">Return</a>
+
+        <div class="assign-container">
+            <!--Second Card for Palindrome Results-->
+            <div class="assign-content card-container">
+                <div class="card-title">Palindrome Results</div>
+                <div class="card-content" id="assign-results-header"></div>
+                <div class="card-content assign-results-text" id="assign-results"></div>
+            </div>
+        </div>
+
+        <script>
+            //function to call current date
+            function getTodaysDate() {
+                return new Date().toLocaleDateString("en-us");
+            }
+
+            //Length of the string
+            function getLength(string) {
+                let stringLength = string.length;
+                return stringLength;
+            }
+
+            //function to reverse the string (letters)
+            function reverse(string) {
+                let splitStr = string.split("");
+                let reverseStr = splitStr.reverse();
+                let joinStr = reverseStr.join("");
+                return joinStr.toLowerCase();
+            }
+
+            //true false statement for palindrome
+            function isPalindrome(string) {
+                if (string === reverse(string)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            //check whether the string is or is not a palindrome
+            function checkPhrase() {
+                let txtPhrase = document.getElementById("txtPhrase").value;
+                let assignResults = document.getElementById("assign-results");
+                let today = getTodaysDate();
+                let len = getLength(txtPhrase);
+                let reversedPhrase = reverse(txtPhrase);
+                let header = `Date:${today}</br>
+                    Original Phrase:${txtPhrase}</br>
+                    Reversed Phrase:${reversedPhrase}</br>
+                    Phrase Length:${len}`;
+                console.log(header);
+                document.getElementById("assign-results-header").innerHTML = header;
+                let palindromeResults = isPalindrome(txtPhrase.toLowerCase());
+                if (palindromeResults === true) {
+                    assignResults.innerHTML = txtPhrase + "<u><b> is</b></u> a palindrome!";
+                } else {
+                    assignResults.innerHTML = txtPhrase + "<u><b> is not</b></u> a palindrome!";
+                }
+            }
+        </script>
+    </body>
+</html>
