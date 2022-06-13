@@ -1,0 +1,14 @@
+/*Title: Restaurant App for WEB 330
+Authors: Amanda Groves
+Date:  12 June 2022
+Modified By: Amanda Groves
+Description: Restaurant App*/
+
+/*added grid stylings*/
+.grid-box {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
