@@ -1,0 +1,47 @@
+/*
+Title: Calorie App for WEB 330
+Authors: Amanda Groves
+Date:  19 June 2022
+Modified By: Amanda Groves
+Description: Calorie App
+*/
+
+#foodList {
+    margin-left: 30px;
+    float: right;
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+.table {
+    margin-bottom: 30px;
+    margin-top: -15px;
+    text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #4F3674;
+    color: white;
+    padding-top: 12px;
+    padding-left: 9px;
+    border: solid #ccc 1px;
+    padding-bottom: 12px;
+}
+
+
+.table-hover, tr:hover {
+    cursor: pointer;
+}
+
+.card-container {
+    background-color: var(--card-background-color);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
+
+.return-home {
+    margin-left: 450px;
+}

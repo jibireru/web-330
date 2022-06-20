@@ -1,0 +1,113 @@
+<!--
+====================================================
+Title: Calorie App for WEB 330
+Authors: Amanda Groves
+Date:  19 June 2022
+Modified By: Amanda Groves
+Description: Calorie App
+=====================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Title for class-->
+        <title>WEB 330 - Enterprise JavaScript II</title>
+
+        <!--style sheets, fonts, and css links-->
+        <link href="../site.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="../theme.css" type="text/css" rel="stylesheet">
+        <link href="groves-calorie.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body class="light-theme">
+
+        <!--toggle light or dark mode function-->
+        <i onclick="toggleMode(this)" id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size: 28px;">
+            <span id="icon-text"></span></i>
+
+        <div class="assign-container">
+            <!--header for app-->
+            <h1 class="app-header">Welcome to the Calorie App!</h1>
+            <div class="assign-content">
+            <div class="card-container">
+                <!--First Card for Calorie Conversion-->
+                <div class="card-title">Calorie Search Form</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="txtPhrase">Enter a Food Item:</label>
+                            <input type="text" class="input" id="txtFoodItem", name="txtFoodItem"/>
+                            <br />
+                            <span id="foodList"></span>
+                        </div>
+                        <!--button for search results-->
+                        <button class="btn btn-primary full-width" id="btnSearch">Search</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <a class="return-home" href="../index.html">Return</a>
+            <!--Second Card for Search Results-->
+            <div class="assign-content card-container">
+                <div class="card-title">Search Results</div>
+
+                <div class="card-content" id="searchResults"></div>
+            </div>
+        </div>
+
+        <script src="../theme.js"></script>
+        <script type="module">
+            //allow toggle
+            setSelectedTheme();
+
+            //import other files
+            import { CalorieConverter } from './calorie-converter.js';
+
+            //function for food
+            let txtFoodItemEl = document.getElementById("txtFoodItem")
+
+            //button search function
+            document.getElementById("btnSearch").onClick = ()=> {
+                let txtFoodItem = txtFoodItemEl.value.toLowerCase();
+                let foods = CalorieConverter.find(txtFoodItem)
+
+                //table data
+                let tableData = `
+                    <table class="table">
+                        <th>Name</th>
+                        <th>Calories</th>
+                        <tbody class="table-hover">`;
+                    for (let foodItem of foods) {
+                        tableData += `<tr>
+                            <td>${foodItem.name}</td>
+                            <td>${foodItem.calories}</td>
+                            </tr>`;
+                        }
+                    document.getElementById('searchResults').innerHTML = tableData + ` </tbody></table>`;
+
+                document.getElementById("searchResults").innerHTML = tableData + ` </tbody></table>`;
+            };
+
+            //function for displaying table
+            let input = document.getElementById("txtFoodItem");
+            input.addEventListener("keyup", (event) => {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    document.getElementById("btnSearch").click();
+                }
+            });
+
+            const foodList = CalorieConverter.data;
+            let foodListData = `<i>(EX: `;
+                for ( let foodName of foodList) {
+                    foodListData += foodName.name + ", ";
+                }
+
+            document.getElementById("foodList").innerHTML = foodListData.slice(0, -2) + ")</li>";
+        </script>
+    </body>
+</html>
