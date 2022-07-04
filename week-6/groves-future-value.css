@@ -1,0 +1,25 @@
+/*
+Title: Extra Styling for Value App
+Author: Amanda Groves
+Date: 03 July 2022
+Modified By: Amanda Groves
+Description: additional styling for Future Value
+*/
+
+.card-container {
+    background-color: var(--card-background-color);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.danger {
+    float: right;
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+  
+.form-label {
+    display: inline-block;
+    padding-top: 1rem;
+}
