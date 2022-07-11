@@ -1,0 +1,13 @@
+/*
+Title: Extra Styling for whatabook app
+Author: Amanda Groves
+Date: 10 July 2022
+Modified By: Amanda Groves
+Description: Card styling
+*/
+
+.card-container {
+    background-color: var(--card-background-color);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
